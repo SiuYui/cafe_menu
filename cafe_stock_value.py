@@ -137,6 +137,31 @@ def main():
         by calling an appropriate defined function
     Display an option menu for user to add item to menu or stop the programme
     '''
+    # Welcome Greeting
+    print(' =' * 33)
+    print(f"\n{'(- 3 -) Welcome to RANDOM Cafe (^ v -)' :^60}\n")
+    print(' =' * 33)
+
+    # Brief introduction for the function of the programme
+    print('''
+          
+This cafe will have a least 4 items sold to customers.
+          
+Please enter all 4 items and their stocks and prices respectively.
+This program will help you to record:
+    1) items 
+    2) number of stocks
+    3) prices
+    4) total stocks value
+
+When 4 items are recorded.  You can make change for the menu depend
+on your preferences: 
+    1) adding item 
+    2) updating stock
+    3) updating price.         
+          ''')
+    print(' -' * 33)
+
 # Create empty list and dictionaries for later execution
 # Calling the defined function until there are 4 items in "menu"
     menu = []
