@@ -1,8 +1,17 @@
+# If the input from the user is empty, prompt error and request for input again
+def empty_input(answer):
+    while True:
+        response = input(answer)
+        if response == '':
+            print("This is an empty response. Please input again.")
+        else:
+            return response
+        
 # If the input from the user is invalid, prompt error and request for input again
 def get_valid_input(answer, data_type):
     while True:
         try:
-            response = data_type(input(answer))
+            response = data_type(empty_input(answer))
             return response
         except ValueError:
             print("Invalid Entry.")
@@ -18,6 +27,7 @@ def positive_input(answer, data_type):
             print(return_statement)
         else:
             return response
+        
 # Check if the input from user are not in list, prompt error and request for input again
 def item_in_list(answer, item_type):
     while True:
@@ -42,10 +52,10 @@ def add_item(menu, stock, price):
         until the input is a valid 
             then stop
     '''
-    new_item = input("\nPlease enter an item sold in the cafe: ").strip().capitalize()
+    new_item = empty_input("\nPlease enter an item sold in the cafe: ").strip().capitalize()
 
 # Add the item to list if it is not in the existing menu and the item's name is valid:
-    if new_item not in menu and len(new_item) > 0 and new_item.isdigit() is False:
+    if new_item not in menu and new_item.isdigit() is False:
         menu.append(new_item)
 
 # Add "new_item" as a key, "item_stock" and "item_price" as a value to dictionary
@@ -83,7 +93,6 @@ def updating_menu(stock):
 # Find the "revised_item" in dictionary and add the "revised_stock" to the particular value
     if revised_item in stock:
         stock[revised_item] += revised_stock
-
 
 def updating_price(price):
     '''
@@ -175,7 +184,7 @@ on your preferences:
 # Output the result depending on the input entered by the user
     while True:
         stock_value(menu, stock, price)
-        option_menu = input(
+        option_menu = empty_input(
             "\nDo you want to updating the menu?  Please select an option below:\n\
             1: Add menu\n\
             2: Updating stock\n\
